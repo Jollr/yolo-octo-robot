@@ -1,4 +1,4 @@
-﻿module Yolo-octo-robot.AssemblyInfo
+﻿module YoloOctoRobot.AssemblyInfo
 open System.Reflection
 open System.Runtime.CompilerServices
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Yolo-octo-robot", "Yolo-octo-robot.fsproj", "{5FE05848-BDEB-4C8E-9915-E00F9E05550C}"
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "YoloOctoRobot", "YoloOctoRobot.fsproj", "{5FE05848-BDEB-4C8E-9915-E00F9E05550C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
