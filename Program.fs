@@ -10,13 +10,12 @@ open System.Net
 let pokePage pokeName = "<html><head></head><body><form method=\"POST\"><input type=\"submit\" value=\"" + pokeName + "\"/></form</body></html>" 
 
 let pokeButton pokeName = 
-    do sprintf pokeName
-    let result = OK "Koning Bauke Jan is de mol"
-    result
+    printf "%s" pokeName
+    OK pokeName
 
 let config =
   { defaultConfig with
-     bindings = [ HttpBinding.mk' HTTP "192.168.1.12" 80 ] }
+     bindings = [ HttpBinding.mk' HTTP "127.0.0.1" 8085 ] }
 
 let app =
   choose
@@ -25,6 +24,6 @@ let app =
           path "/ryanne" >>= OK "Hallo Ryanne!" 
           path "/bulbasaur" >>= OK (pokePage "bulbasaur") ] 
       POST >>= choose 
-        [ path "/bulbasaur" >>= OK "You pressed Bulbasaur!"] ]
+        [ path "/bulbasaur" >>= pokeButton "Bulbasaur"] ]
 
 startWebServer config app
