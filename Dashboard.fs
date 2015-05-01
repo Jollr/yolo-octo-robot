@@ -1,6 +1,6 @@
 ﻿module Dashboard
 
-let puzzleSquare x y = "<div class='puzzle-square'><img src='puzzle" + x.ToString() + y.ToString() + ".png'/></div>"
+let puzzleSquare x y = "<div class='puzzle-square'><img src='puzzle/" + x.ToString() + "/" + y.ToString() + "/img'/></div>"
 
 let puzzleRow width y = 
     "<div class='puzzle-row'>" +
