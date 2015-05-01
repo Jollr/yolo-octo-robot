@@ -36,9 +36,9 @@
     <Compile Include="Puzzle.fs" />
     <Compile Include="PokePages.fs" />
     <Compile Include="Dashboard.fs" />
-    <Compile Include="Program.fs" />
     <None Include="packages.config" />
     <None Include="app.config" />
+    <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

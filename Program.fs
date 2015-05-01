@@ -10,6 +10,7 @@ open Suave.Http.Files
 open Suave.Utils
 
 open System.Net
+
 open PokePages
 open Dashboard
 
@@ -23,13 +24,12 @@ let app =
         [ path "/kevin" >>= OK "Hallo Kevin!"
           path "/ryanne" >>= OK "Hallo Ryanne!" 
           path "/bulbasaur" >>= OK (pokePage "bulbasaur")
-          path "/dashboard" >>= OK (dashboard ())
+          path "/dashboard" >>= OK (dashboardPage 5 5)
           path "/bulbasaur.png" >>= file "bulbasaur.png" ] 
       POST >>= choose 
         [ path "/bulbasaur" >>= pokeButton "Bulbasaur"] ]
 
-        
-        
+
 [<EntryPoint>]
 let main args = 
     startWebServer config app
