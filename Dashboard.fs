@@ -1,16 +1,21 @@
 ﻿module Dashboard
 
-let puzzleSquare x y = "<div class='puzzle-square'><img src='puzzle/" + x.ToString() + "/" + y.ToString() + "/img'/></div>"
+let puzzleSquare x y = seq { 
+    yield "<div class='puzzle-square'><img src='puzzle/" 
+    yield x.ToString() 
+    yield "/" 
+    yield y.ToString() 
+    yield "/img'/></div>" }
 
-let puzzleRow width y = 
-    "<div class='puzzle-row'>" +
-    (seq { 0 .. (width - 1)} |> Seq.map ( fun(i) -> puzzleSquare i y) |> Seq.reduce (+)) +
-    "</div>"
+let puzzleRow width y = seq {
+    yield "<div class='puzzle-row'>" 
+    yield! (seq { 0 .. (width - 1)} |> Seq.map ( fun(i) -> puzzleSquare i y) |> Seq.collect id)
+    yield "</div>" }
 
-let puzzle width height = 
-    "<div class='puzzle'>" +
-    (seq { 0 .. (height - 1)} |> Seq.map ( fun(i) -> puzzleRow width i) |> Seq.reduce (+)) +
-    "</div>" 
+let puzzle width height = seq {
+    yield "<div class='puzzle'>"
+    yield! (seq { 0 .. (height - 1) } |> Seq.map ( fun(i) -> puzzleRow width i) |> Seq.collect id)
+    yield "</div>" }
 
 let dashboardPage puzzleWidth puzzleHeight =
     "<html>" +
@@ -19,7 +24,7 @@ let dashboardPage puzzleWidth puzzleHeight =
     "    </head>" +
     "    <body>" +
     "        <div class='dashboard-container'>" +
-    puzzle puzzleWidth puzzleHeight +
+    Seq.reduce (+) (puzzle puzzleWidth puzzleHeight) +
     "        </div>" +
     "    </body>" +
     "</html>"
