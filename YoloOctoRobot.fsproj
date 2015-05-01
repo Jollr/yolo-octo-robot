@@ -33,7 +33,9 @@
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Puzzle.fs" />
     <Compile Include="PokePages.fs" />
+    <Compile Include="Dashboard.fs" />
     <Compile Include="Program.fs" />
     <None Include="packages.config" />
     <None Include="app.config" />

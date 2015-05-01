@@ -11,6 +11,7 @@ open Suave.Utils
 
 open System.Net
 open PokePages
+open Dashboard
 
 let config =
   { defaultConfig with
@@ -22,6 +23,7 @@ let app =
         [ path "/kevin" >>= OK "Hallo Kevin!"
           path "/ryanne" >>= OK "Hallo Ryanne!" 
           path "/bulbasaur" >>= OK (pokePage "bulbasaur")
+          path "/dashboard" >>= OK (dashboard ())
           path "/bulbasaur.png" >>= file "bulbasaur.png" ] 
       POST >>= choose 
         [ path "/bulbasaur" >>= pokeButton "Bulbasaur"] ]
