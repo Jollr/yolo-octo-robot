@@ -36,9 +36,9 @@
     <Compile Include="Puzzle.fs" />
     <Compile Include="PokePages.fs" />
     <Compile Include="Dashboard.fs" />
+    <Compile Include="Program.fs" />
     <None Include="packages.config" />
     <None Include="app.config" />
-    <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -55,4 +55,9 @@
       <HintPath>packages\Suave.0.26.1\lib\net40\Suave.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <Target Name="AfterBuild"> 
+    <Copy SourceFiles="img\bulbasaur.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\red.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\white.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+  </Target>
 </Project>

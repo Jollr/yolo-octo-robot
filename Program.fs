@@ -25,7 +25,7 @@ let app =
           path "/ryanne" >>= OK "Hallo Ryanne!" 
           path "/bulbasaur" >>= OK (pokePage "bulbasaur")
           path "/dashboard" >>= OK (dashboardPage 5 5)
-          path "/bulbasaur.png" >>= file "bulbasaur.png" ] 
+          path "/bulbasaur.png" >>= file "img/bulbasaur.png" ] 
       POST >>= choose 
         [ path "/bulbasaur" >>= pokeButton "Bulbasaur"] ]
 
