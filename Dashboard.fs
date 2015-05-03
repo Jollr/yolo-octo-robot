@@ -40,5 +40,5 @@ let dashboardPage puzzleWidth puzzleHeight =
 let dashboardBindings = 
     [ GET >>= choose [ 
         path "/dashboard" >>= OK (dashboardPage Puzzle.width Puzzle.height) 
-        pathScan "/dashboard/%d/%d/img" ( fun (a, b) -> file "img/red.png" ) 
+        pathScan "/dashboard/%d/%d/img" ( fun (x, y) -> file "img/red.png" ) 
         path "/dashboard/stylesheet.css" >>= file "dashboard.css" ] ]

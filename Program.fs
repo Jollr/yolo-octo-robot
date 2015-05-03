@@ -21,13 +21,9 @@ let config =
 let globalBindings = 
     [ GET >>= choose
         [ path "/kevin" >>= OK "Hallo Kevin!"
-          path "/ryanne" >>= OK "Hallo Ryanne!" 
-          path "/bulbasaur" >>= OK (pokePage "bulbasaur")
-          path "/bulbasaur.png" >>= file "img/bulbasaur.png" ] 
-      POST >>= choose 
-        [ path "/bulbasaur" >>= pokeButton "Bulbasaur"] ]
+          path "/ryanne" >>= OK "Hallo Ryanne!" ] ]
 
-let allBindings = List.append globalBindings dashboardBindings
+let allBindings = List.append (List.append globalBindings dashboardBindings) pokeBindings
 
 let app = choose allBindings
 
