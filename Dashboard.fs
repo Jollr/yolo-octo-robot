@@ -1,5 +1,9 @@
 ﻿module Dashboard
 
+open Suave.Http
+open Suave.Http.Applicatives
+open Suave.Http.Successful
+
 let puzzleSquare x y = seq { 
     yield "<div class='puzzle-square'><img src='puzzle/" 
     yield x.ToString() 
@@ -28,3 +32,6 @@ let dashboardPage puzzleWidth puzzleHeight =
     "        </div>" +
     "    </body>" +
     "</html>"
+
+let dashboardBindings = 
+    [ GET >>= choose [ path "/dashboard" >>= OK (dashboardPage 5 5) ] ]

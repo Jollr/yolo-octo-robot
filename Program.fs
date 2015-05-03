@@ -18,17 +18,18 @@ let config =
   { defaultConfig with
      bindings = [ HttpBinding.mk' HTTP "127.0.0.1" 8082 ] }
 
-let app =
-  choose
+let globalBindings = 
     [ GET >>= choose
         [ path "/kevin" >>= OK "Hallo Kevin!"
           path "/ryanne" >>= OK "Hallo Ryanne!" 
           path "/bulbasaur" >>= OK (pokePage "bulbasaur")
-          path "/dashboard" >>= OK (dashboardPage 5 5)
           path "/bulbasaur.png" >>= file "img/bulbasaur.png" ] 
       POST >>= choose 
         [ path "/bulbasaur" >>= pokeButton "Bulbasaur"] ]
 
+let allBindings = List.append globalBindings dashboardBindings
+
+let app = choose allBindings
 
 [<EntryPoint>]
 let main args = 
