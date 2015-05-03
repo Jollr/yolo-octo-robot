@@ -3,9 +3,10 @@
 open Suave.Http
 open Suave.Http.Applicatives
 open Suave.Http.Successful
+open Suave.Http.Files
 
 let puzzleSquare x y = seq { 
-    yield "<div class='puzzle-square'><img src='puzzle/" 
+    yield "<div class='puzzle-square'><img src='dashboard/" 
     yield x.ToString() 
     yield "/" 
     yield y.ToString() 
@@ -34,4 +35,6 @@ let dashboardPage puzzleWidth puzzleHeight =
     "</html>"
 
 let dashboardBindings = 
-    [ GET >>= choose [ path "/dashboard" >>= OK (dashboardPage 5 5) ] ]
+    [ GET >>= choose [ 
+        path "/dashboard" >>= OK (dashboardPage 5 5) 
+        pathScan "/dashboard/%d/%d/img" ( fun (a, b) -> file "img/red.png" ) ] ]
