@@ -1,8 +1,9 @@
 .puzzle-square{
 	border-style: solid;
 	border-color: #EEEEEE;
+	float: left;
 }
 
 .puzzle-row {
-	//display: inline-block;
+	display: table;
 }
