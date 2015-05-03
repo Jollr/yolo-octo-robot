@@ -4,6 +4,7 @@ open Suave.Http
 open Suave.Http.Applicatives
 open Suave.Http.Successful
 open Suave.Http.Files
+open Puzzle
 
 let puzzleSquare x y = seq { 
     yield "<div class='puzzle-square'><img src='dashboard/" 
@@ -26,6 +27,7 @@ let dashboardPage puzzleWidth puzzleHeight =
     "<html>" +
     "    <head>" +
     "        <title>Gotta catch'em all!</title>" +
+    "        <link type='text/css' href='dashboard/stylesheet.css' rel='stylesheet'>" +
     "    </head>" +
     "    <body>" +
     "        <div class='dashboard-container'>" +
@@ -34,7 +36,9 @@ let dashboardPage puzzleWidth puzzleHeight =
     "    </body>" +
     "</html>"
 
+
 let dashboardBindings = 
     [ GET >>= choose [ 
-        path "/dashboard" >>= OK (dashboardPage 5 5) 
-        pathScan "/dashboard/%d/%d/img" ( fun (a, b) -> file "img/red.png" ) ] ]
+        path "/dashboard" >>= OK (dashboardPage Puzzle.width Puzzle.height) 
+        pathScan "/dashboard/%d/%d/img" ( fun (a, b) -> file "img/red.png" ) 
+        path "/dashboard/stylesheet.css" >>= file "dashboard.css" ] ]

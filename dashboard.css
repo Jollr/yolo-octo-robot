@@ -1,0 +1,8 @@
+.puzzle-square{
+	border-style: solid;
+	border-color: #EEEEEE;
+}
+
+.puzzle-row {
+	//display: inline-block;
+}

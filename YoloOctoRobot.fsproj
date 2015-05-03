@@ -59,5 +59,7 @@
     <Copy SourceFiles="img\bulbasaur.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\red.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\white.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="dashboard.css" DestinationFolder="$(OutputPath)" ContinueOnError="false" />
+    <Copy SourceFiles="button.css" DestinationFolder="$(OutputPath)" ContinueOnError="false" />
   </Target>
 </Project>
