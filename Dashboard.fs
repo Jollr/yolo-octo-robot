@@ -27,6 +27,7 @@ let dashboardPage puzzleWidth puzzleHeight =
     "<html>" +
     "    <head>" +
     "        <title>Gotta catch'em all!</title>" +
+    "        <script type='text/javascript' src='jquery'></script>" +
     "        <link type='text/css' href='dashboard/stylesheet.css' rel='stylesheet'>" +
     "    </head>" +
     "    <body>" +
@@ -36,9 +37,11 @@ let dashboardPage puzzleWidth puzzleHeight =
     "    </body>" +
     "</html>"
 
+let imageFilename x y = "img/puzzle" + x.ToString() + y.ToString() + ".png"
+
 let image x y =
     match Puzzle.get x y with
-    | true -> file "img/red.png"
+    | true -> file (imageFilename x y)
     | false -> file "img/white.png"
 
 let dashboardBindings = 
@@ -46,3 +49,6 @@ let dashboardBindings =
         path "/dashboard" >>= OK (dashboardPage Puzzle.width Puzzle.height) 
         pathScan "/dashboard/%d/%d/img" ( fun (x, y) -> image x y ) 
         path "/dashboard/stylesheet.css" >>= file "dashboard.css" ] ]
+
+Puzzle.trigger 1 1
+Puzzle.trigger 1 2

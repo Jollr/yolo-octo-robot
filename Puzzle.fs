@@ -1,7 +1,7 @@
 ﻿module Puzzle
 
 let width = 5
-let height = 4
+let height = 3
 
 let mutable puzzleGrid : bool[,] = Array2D.init<bool> width height (fun x y -> false)
 

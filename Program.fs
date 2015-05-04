@@ -6,6 +6,7 @@ open Suave.Types
 open Suave.Http
 open Suave.Http.Applicatives
 open Suave.Http.Successful
+open Suave.Http.RequestErrors
 open Suave.Http.Files
 open Suave.Utils
 
@@ -21,7 +22,9 @@ let config =
 let globalBindings = 
     [ GET >>= choose
         [ path "/kevin" >>= OK "Hallo Kevin!"
-          path "/ryanne" >>= OK "Hallo Ryanne!" ] ]
+          path "/ryanne" >>= OK "Hallo Ryanne!" 
+          path "/jquery" >>= file "jquery-2.1.3.js"
+          path "/favicon.ico" >>= NOT_FOUND ""] ]
 
 let allBindings = List.append (List.append globalBindings dashboardBindings) pokeBindings
 

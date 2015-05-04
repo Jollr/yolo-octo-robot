@@ -1,7 +1,7 @@
 .puzzle-square{
-	border-style: solid;
-	border-color: #EEEEEE;
 	float: left;
+	width: 180px;
+	height: 180px;
 }
 
 .puzzle-row {
