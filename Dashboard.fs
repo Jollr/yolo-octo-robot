@@ -4,6 +4,7 @@ open Suave.Http
 open Suave.Http.Applicatives
 open Suave.Http.Successful
 open Suave.Http.Files
+
 open Puzzle
 
 let refresher = seq {

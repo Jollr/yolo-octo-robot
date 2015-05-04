@@ -32,5 +32,6 @@ let app = choose allBindings
 
 [<EntryPoint>]
 let main args = 
+    do Puzzle.trigger 2 1
     startWebServer config app
     0

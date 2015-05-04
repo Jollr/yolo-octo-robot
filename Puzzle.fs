@@ -7,7 +7,9 @@ let mutable puzzleGrid : bool[,] = Array2D.init<bool> width height (fun x y -> f
 
 let get (x:int) (y:int) : bool = puzzleGrid.GetValue(x, y) :?> bool
 
-let private flip x y = puzzleGrid.SetValue( not (get x y), x, y)
+//let private flip x y = puzzleGrid.SetValue( not (get x y), x, y)
+//let private flip x y = Array2D.set 
+let private flip x y = puzzleGrid.[x, y] <- not (get x y)
 
 let private flipUp x y = flip x (y-1)
 let private flipRight x y = flip (x+1) y

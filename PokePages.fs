@@ -13,7 +13,7 @@ let buttonElement pokeName =
 let pokePage pokeName = "<html><head></head><body><form method='POST'>" + (buttonElement pokeName) + "</form></body></html>" 
 
 let pokeButton pokeName = 
-    Puzzle.trigger 2 2
+    Puzzle.trigger 1 1
     OK pokeName
 
 let pokeBindings = 
