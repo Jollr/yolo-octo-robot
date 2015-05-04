@@ -6,6 +6,13 @@ open Suave.Http.Successful
 open Suave.Http.Files
 open Puzzle
 
+let refresher = seq {
+    yield "<script>"
+    yield " $(function() { "
+    yield "     window.setInterval( function() { location.reload(); }, 5000 );"
+    yield " } );"
+    yield "</script>"}
+
 let puzzleSquare x y = seq { 
     yield "<div class='puzzle-square'><img src='dashboard/" 
     yield x.ToString() 
@@ -29,6 +36,7 @@ let dashboardPage puzzleWidth puzzleHeight =
     "        <title>Gotta catch'em all!</title>" +
     "        <script type='text/javascript' src='jquery'></script>" +
     "        <link type='text/css' href='dashboard/stylesheet.css' rel='stylesheet'>" +
+    Seq.reduce (+) refresher +
     "    </head>" +
     "    <body>" +
     "        <div class='dashboard-container'>" +
@@ -51,4 +59,3 @@ let dashboardBindings =
         path "/dashboard/stylesheet.css" >>= file "dashboard.css" ] ]
 
 Puzzle.trigger 1 1
-Puzzle.trigger 1 2
