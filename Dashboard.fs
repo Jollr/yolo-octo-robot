@@ -8,8 +8,14 @@ open Puzzle
 
 let refresher = seq {
     yield "<script>"
+    yield " var refreshImage = function(image) { " 
+    yield "     var d = new Date();"
+    yield "     var src = image.attr('src').split('?')[0] + '?' + d.getTime();"
+    yield "     image.attr('src', src);"
+    yield " };"
+    yield " var refreshImages = function() { $('img').each( function(i, elem) { refreshImage($(elem)); }); };"
     yield " $(function() { "
-    yield "     window.setInterval( function() { location.reload(); }, 5000 );"
+    yield "     window.setInterval(refreshImages, 5000);"
     yield " } );"
     yield "</script>"}
 
@@ -57,5 +63,3 @@ let dashboardBindings =
         path "/dashboard" >>= OK (dashboardPage Puzzle.width Puzzle.height) 
         pathScan "/dashboard/%d/%d/img" ( fun (x, y) -> image x y ) 
         path "/dashboard/stylesheet.css" >>= file "dashboard.css" ] ]
-
-Puzzle.trigger 1 1

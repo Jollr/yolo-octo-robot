@@ -5,13 +5,15 @@ open Suave.Http.Applicatives
 open Suave.Http.Successful
 open Suave.Http.Files
 
+open Puzzle
+
 let buttonElement pokeName = 
     "<button type='submit'><img src='" + pokeName + ".png'/></button>"
 
 let pokePage pokeName = "<html><head></head><body><form method='POST'>" + (buttonElement pokeName) + "</form></body></html>" 
 
 let pokeButton pokeName = 
-    do printf "%s" pokeName
+    Puzzle.trigger 2 2
     OK pokeName
 
 let pokeBindings = 
