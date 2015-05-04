@@ -3,7 +3,7 @@
 let width = 5
 let height = 4
 
-let mutable puzzleGrid : bool[,] = array2D [ [true; false; true; true; true]; [true; false; true; true; true]; [false; true; false; true; true]; [false; true; false; true; true] ]
+let mutable puzzleGrid : bool[,] = Array2D.init<bool> width height (fun x y -> false)
 
 let get (x:int) (y:int) : bool = puzzleGrid.GetValue(x, y) :?> bool
 
@@ -15,8 +15,11 @@ let private flipLeft x y = flip (x-1) y
 let private flipDown x y = flip x (y+1)
 
 let trigger x y =
-    if not (x <= 0) then flipLeft x y
-    if not (x >= width) then flipRight x y    
-    if not (y <= 0) then flipUp x y
-    if not (y >= height) then flipDown x y
-
+    if x < 0 then raise (System.ArgumentException("x"))
+    if y < 0 then raise (System.ArgumentException("y"))
+    if x >= width then raise (System.ArgumentException("x"))
+    if y >= height then raise (System.ArgumentException("y"))
+    if x > 0 then flipLeft x y
+    if y > 0 then flipUp x y
+    if x < width - 1 then flipRight x y    
+    if y < height - 1 then flipDown x y
