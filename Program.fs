@@ -15,7 +15,7 @@ open Dashboard
 
 let config =
   { defaultConfig with
-     bindings = [ HttpBinding.mk' HTTP "127.0.0.1" 8082 ] }
+     bindings = [ HttpBinding.mk' HTTP "192.168.1.12" 8082 ] }
 
 let globalBindings = 
     [ GET >>= choose

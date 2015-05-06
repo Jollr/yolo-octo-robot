@@ -4,20 +4,32 @@ open System
 
 type PokeRegistration(pokeName: string, x: int, y: int, id: Guid) =
     let mutable LastTrigger = DateTime.UtcNow
+    
+    let Cooldown () = 
+        let elapsed = DateTime.UtcNow.Subtract(LastTrigger).Seconds
+        if elapsed >= 60
+        then 0
+        else 60 - elapsed
+
+    member private this.CanTrigger () = Cooldown() = 0
+
     member this.X = x
     member this.Y = y
     member this.Id = id
     member this.Name = pokeName
-    
-    member this.Trigger () = 
-        let triggered = DateTime.UtcNow.Subtract(LastTrigger) > TimeSpan.FromMinutes(1.0)
-        if (triggered) then LastTrigger <- DateTime.UtcNow
-        triggered
+    member this.GetCooldown = Cooldown
 
-let private Registrations = seq {
+    member this.Trigger () = 
+        if (this.CanTrigger()) 
+        then 
+            LastTrigger <- DateTime.UtcNow
+            true
+        else false
+
+let private Registrations = [|
         yield new PokeRegistration("bulbasaur", 1, 1, Guid.Parse("0cf823bb-6907-430b-9851-7ae6cbbc7f46"))
         yield new PokeRegistration("charizard", 2, 1, Guid.Parse("01d544b2-cdfd-481d-8b67-58daef9c1337"))
-    }
+    |]
 
 let GetById (id: Guid) = 
     Registrations 
