@@ -10,8 +10,6 @@ open Suave.Http.RequestErrors
 open Suave.Http.Files
 open Suave.Utils
 
-open System.Net
-
 open PokePages
 open Dashboard
 
