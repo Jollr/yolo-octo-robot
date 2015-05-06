@@ -21,15 +21,27 @@ let private getPokePage (id: Guid) =
     | Some pokemon -> OK (buttonPage pokemon)
     | None -> NOT_FOUND ""
 
-let private trigger pokeName = 
-    printfn "%s" pokeName
-    Puzzle.trigger 1 1
-    OK pokeName
+//let private trigger pokeName = 
+//    printfn "%s" pokeName
+//    Puzzle.trigger 1 1
+//    OK pokeName
+
+let private postPokePage (id: Guid) =
+    let str = id.ToString()
+    printfn "%s" str
+    let trigger (pokemon: PokeRegistration) = 
+        printfn "%s" pokemon.Name
+        Puzzle.trigger pokemon.X pokemon.Y
+        OK pokemon.Name
+     
+    match PokeMappings.GetById id with
+    | Some pokemon -> trigger pokemon
+    | None -> NOT_FOUND ""
 
 
 let pokeBindings = 
     [ GET >>= choose
         [ pathScan "/pokemon/%s/img" ( fun(pokeName) -> file (pokeImage pokeName) )
-          guidScan "/pokemon/" ( fun (id) -> getPokePage id) ] 
+          guidScan "/pokemon/" getPokePage ] 
       POST >>= choose 
-        [ path "/bulbasaur" >>= context (fun x -> trigger "Bulbasaur") ] ]
+        [ guidScan "/pokemon/" postPokePage] ]
