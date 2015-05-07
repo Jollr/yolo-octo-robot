@@ -8,25 +8,6 @@ open Suave.Types
 
 open Puzzle
 
-let refresher = seq {
-    yield "<script>"
-    yield " var refreshImage = function(image) { " 
-    yield "     var d = new Date();"
-    yield "     var src = image.attr('src').split('?')[0] + '?' + d.getTime();"
-    yield "     image.attr('src', src);"
-    yield " };"
-    yield " var refreshImages = function() { $('img').each( function(i, elem) { refreshImage($(elem)); }); };"
-    yield " $(function() { "
-    yield "     window.setInterval(refreshImages, 5000);"
-    yield " } );"
-    yield " var processShouldUpdate = function(shouldUpdate) { "
-    yield "     console.log(shouldUpdate); "
-    yield " };"
-    yield " $(function() {"
-    yield "     $.get('/dashboard/puzzleState', processShouldUpdate);"
-    yield " });"
-    yield "</script>"}
-
 let puzzleSquare x y = seq { 
     yield "<div class='puzzle-square'><img src='dashboard/" 
     yield x.ToString() 
@@ -49,8 +30,8 @@ let dashboardPage puzzleWidth puzzleHeight =
     "    <head>" +
     "        <title>Gotta catch'em all!</title>" +
     "        <script type='text/javascript' src='jquery'></script>" +
+    "        <script type='text/javascript' src='dashboard/dashboard.js'></script>" +
     "        <link type='text/css' href='dashboard/stylesheet.css' rel='stylesheet'>" +
-    Seq.reduce (+) refresher +
     "    </head>" +
     "    <body>" +
     "        <div class='dashboard-container'>" +
@@ -80,4 +61,6 @@ let dashboardBindings =
         path "/dashboard" >>= OK (dashboardPage Puzzle.width Puzzle.height) 
         pathScan "/dashboard/%d/%d/img" ( fun (x, y) -> image x y ) 
         path "/dashboard/stylesheet.css" >>= file "dashboard.css"
+        path "/dashboard/dashboard.js" >>= file "dashboard.js" 
         path "/dashboard/puzzleState" >>= context (fun x -> puzzleState()) ] ]
+        

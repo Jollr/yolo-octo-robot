@@ -24,7 +24,8 @@ let private getPokePage (id: Guid) =
 
 let private postPokePage (id: Guid) =
     let trigger (pokemon: PokeRegistration) = 
-        if (pokemon.Trigger()) then Puzzle.trigger pokemon.X pokemon.Y
+        //if (pokemon.Trigger()) then Puzzle.trigger pokemon.X pokemon.Y
+        Puzzle.trigger pokemon.X pokemon.Y
         Redirection.FOUND ("/pokemon/" + pokemon.Id.ToString())
      
     match PokeMappings.GetById id with

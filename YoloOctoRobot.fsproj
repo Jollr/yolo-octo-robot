@@ -64,6 +64,7 @@
     <Copy SourceFiles="img\red.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\white.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="dashboard.css" DestinationFolder="$(OutputPath)" ContinueOnError="false" />
+    <Copy SourceFiles="dashboard.js" DestinationFolder="$(OutputPath)" ContinueOnError="false" />
     <Copy SourceFiles="button.css" DestinationFolder="$(OutputPath)" ContinueOnError="false" />
     <Copy SourceFiles="jquery-2.1.3.js" DestinationFolder="$(OutputPath)" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle00.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
