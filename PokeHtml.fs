@@ -2,14 +2,19 @@
 
 open PokeRegistration
 
+let private title (pokemon: PokeRegistration) = seq {
+    yield "<title>"
+    yield pokemon.Name
+    yield "</title>" }
+
 let private buttonElement (pokeName:string) = seq {
     yield "<button type='submit'><img src='" 
     yield pokeName 
     yield "/img'/></button>" }
 
-let private pokeForm (pokeName:string) = seq {
+let private pokeForm (pokemon: PokeRegistration) = seq {
     yield "<form method='POST'>" 
-    yield (buttonElement pokeName) |> Seq.reduce (+)
+    yield (buttonElement pokemon.Name) |> Seq.reduce (+)
     yield "</form>" }
 
 let private timer (pokemon: PokeRegistration) = seq {
@@ -36,10 +41,11 @@ let private timerElement () = "<div id='timer'></div>"
 let ButtonPage (pokemon: PokeRegistration) = seq {
     yield "<html>"
     yield "   <head>" 
+    yield (title pokemon) |> Seq.reduce (+)
     yield (timer pokemon)  |> Seq.reduce (+)
     yield "   </head>" 
     yield "   <body>"
-    yield (pokeForm pokemon.Name) |> Seq.reduce (+)
+    yield (pokeForm pokemon) |> Seq.reduce (+)
     yield timerElement() 
     yield "   </body>" 
     yield "</html>" }
