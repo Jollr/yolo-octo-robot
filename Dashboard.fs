@@ -4,6 +4,7 @@ open Suave.Http
 open Suave.Http.Applicatives
 open Suave.Http.Successful
 open Suave.Http.Files
+open Suave.Types
 
 open Puzzle
 
@@ -18,6 +19,12 @@ let refresher = seq {
     yield " $(function() { "
     yield "     window.setInterval(refreshImages, 5000);"
     yield " } );"
+    yield " var processShouldUpdate = function(shouldUpdate) { "
+    yield "     console.log(shouldUpdate); "
+    yield " };"
+    yield " $(function() {"
+    yield "     $.get('/dashboard/puzzleState', processShouldUpdate);"
+    yield " });"
     yield "</script>"}
 
 let puzzleSquare x y = seq { 
@@ -59,8 +66,18 @@ let image x y =
     | true -> file (imageFilename x y)
     | false -> file "img/white.png"
 
+let puzzleState () = 
+    let xs = [0 .. Puzzle.width - 1]
+    let ys = [0 .. Puzzle.height - 1]
+    let state x y = 
+        match Puzzle.get x y with
+            | true -> "1"
+            | false -> "0"
+    xs |> List.collect (fun x -> ys |> List.map (state x)) |> List.reduce (+) |> OK
+
 let dashboardBindings = 
     [ GET >>= choose [ 
         path "/dashboard" >>= OK (dashboardPage Puzzle.width Puzzle.height) 
         pathScan "/dashboard/%d/%d/img" ( fun (x, y) -> image x y ) 
-        path "/dashboard/stylesheet.css" >>= file "dashboard.css" ] ]
+        path "/dashboard/stylesheet.css" >>= file "dashboard.css"
+        path "/dashboard/puzzleState" >>= context (fun x -> puzzleState()) ] ]
