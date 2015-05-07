@@ -33,7 +33,6 @@ let Initialize () =
         new PokeRegistration("Suicune", 4, 4, Guid.Parse("d829058e-8ea3-4017-8954-92ff0d6365ea"))
     |]
 
-
 let GetById (id: Guid) = 
     Registrations 
     |> Seq.filter (fun r -> r.Id.Equals(id)) 

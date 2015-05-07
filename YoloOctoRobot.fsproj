@@ -37,6 +37,7 @@
     <Compile Include="Puzzle.fs" />
     <Compile Include="PokeRegistration.fs" />
     <Compile Include="PokeMappings.fs" />
+    <Compile Include="PokeHtml.fs" />
     <Compile Include="PokePages.fs" />
     <Compile Include="Dashboard.fs" />
     <Compile Include="Program.fs" />
