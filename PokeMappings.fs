@@ -5,7 +5,7 @@ open PokeRegistration
 
 let mutable private Registrations = [| |]
 
-let Start () = 
+let Initialize () = 
     Registrations <- [|
         new PokeRegistration("Bulbasaur", 0, 0, Guid.Parse("0cf823bb-6907-430b-9851-7ae6cbbc7f46"))
         new PokeRegistration("Squirtle", 0, 1, Guid.Parse("01d544b2-cdfd-481d-8b67-58daef9c1337"))

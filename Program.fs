@@ -30,6 +30,6 @@ let app = choose allBindings
 
 [<EntryPoint>]
 let main args = 
-    PokeMappings.Start()
+    PokeMappings.Initialize()
     startWebServer config app
     0
