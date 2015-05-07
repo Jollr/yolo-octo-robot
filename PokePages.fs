@@ -11,6 +11,7 @@ open Suave.Types
 
 open GuidScan
 open Puzzle
+open PokeRegistration
 open PokeMappings
 
 let private buttonElement (pokeName:string) = "<button type='submit'><img src='" + pokeName + "/img'/></button>"

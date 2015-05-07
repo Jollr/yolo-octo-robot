@@ -35,9 +35,11 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="GuidScan.fs" />
     <Compile Include="Puzzle.fs" />
+    <Compile Include="PokeRegistration.fs" />
     <Compile Include="PokeMappings.fs" />
     <Compile Include="PokePages.fs" />
     <Compile Include="Dashboard.fs" />
+    <Compile Include="TestPage.fs" />
     <Compile Include="Program.fs" />
     <None Include="packages.config" />
     <None Include="app.config" />
