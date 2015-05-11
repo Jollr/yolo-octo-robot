@@ -54,8 +54,8 @@ let puzzleState () =
         match Puzzle.get x y with
             | true -> "1"
             | false -> "0"
-    let rowState y = xs |> List.map (fun a -> state a y)
-    List.collect rowState ys |> List.reduce (+) |> OK
+    let rowState y = xs |> List.map (fun x -> state x y)
+    ys |> List.collect rowState |> List.reduce (+) |> OK
 
 let dashboardBindings = 
     [ GET >>= choose [ 
