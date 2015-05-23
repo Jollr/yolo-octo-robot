@@ -1,9 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "YoloOctoRobot", "YoloOctoRobot.fsproj", "{5FE05848-BDEB-4C8E-9915-E00F9E05550C}"
+# Visual Studio 2012
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "YoloOctoRobot", "YoloOctoRobot.fsproj", "{5FE05848-BDEB-4C8E-9915-E00F9E05550C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +13,5 @@ Global
 		{5FE05848-BDEB-4C8E-9915-E00F9E05550C}.Debug|x86.Build.0 = Debug|x86
 		{5FE05848-BDEB-4C8E-9915-E00F9E05550C}.Release|x86.ActiveCfg = Release|x86
 		{5FE05848-BDEB-4C8E-9915-E00F9E05550C}.Release|x86.Build.0 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

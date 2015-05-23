@@ -40,6 +40,3 @@ let GetById (id: Guid) =
         if (Seq.isEmpty x) 
             then None 
             else Some (Seq.head x)
-
-let GetAll () =
-    Array.AsReadOnly(Registrations)

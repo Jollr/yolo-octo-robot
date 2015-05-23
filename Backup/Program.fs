@@ -15,12 +15,11 @@ open Dashboard
 
 let config =
   { defaultConfig with
-     bindings = [ HttpBinding.mk' HTTP "192.168.178.24" 8082 ] }
+     bindings = [ HttpBinding.mk' HTTP "127.0.0.1" 8082 ] }
 
 let globalBindings = 
     [ GET >>= choose
-        [ path "/" >>= OK "Server is up and running!"
-          path "/kevin" >>= OK "Hallo Kevin!"
+        [ path "/kevin" >>= OK "Hallo Kevin!"
           path "/ryanne" >>= OK "Hallo Ryanne!" 
           path "/jquery" >>= file "jquery-2.1.3.js"
           path "/favicon.ico" >>= NOT_FOUND ""] ]

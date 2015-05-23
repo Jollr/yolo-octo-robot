@@ -1,6 +1,5 @@
 ﻿module PokeHtml
 
-open System
 open PokeRegistration
 
 let private title (pokemon: PokeRegistration) = seq {
@@ -50,22 +49,3 @@ let ButtonPage (pokemon: PokeRegistration) = seq {
     yield timerElement() 
     yield "   </body>" 
     yield "</html>" }
-
-let ButtonLink (pokemon: PokeRegistration) = seq {
-    yield "<a href='/pokemon/"
-    yield pokemon.Id.ToString()
-    yield "'>"
-    yield pokemon.Name
-    yield "</a><br/>"
-}
-
-let TestPage (pokemon: seq<PokeRegistration>) = seq {
-    yield "<html>"
-    yield " <head>"
-    yield " </head>"
-    yield " <body>"
-    yield! pokemon |> Seq.map ButtonLink |> Seq.map (Seq.reduce (+))
-    yield " </body>"
-    yield "</html>"
-}
-    

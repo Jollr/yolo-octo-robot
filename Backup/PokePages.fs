@@ -31,16 +31,9 @@ let private postPokePage (id: Guid) =
     | Some pokemon -> trigger pokemon
     | None -> NOT_FOUND ""
 
-let private testPage () =
-    PokeMappings.GetAll()
-    |> PokeHtml.TestPage
-    |> Seq.reduce (+)
-    |> OK
-
 let pokeBindings = 
     [ GET >>= choose
         [ path "/pokemon/jquery" >>= file "jquery-2.1.3.js"
-          path "/pokemon/test" >>= context ( fun x -> testPage() )
           pathScan "/pokemon/%s/img" pokeImage
           guidScan "/pokemon/" getPokePage ] 
       POST >>= choose 
