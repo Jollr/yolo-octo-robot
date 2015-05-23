@@ -43,4 +43,4 @@ let pokeBindings =
           pathScan "/pokemon/%s/img" pokeImage
           guidScan "/pokemon/" getPokePage ] 
       POST >>= choose 
-        [ guidScan "/pokemon/" postPokePage] ]
+        [ guidScan "/pokemon/" postPokePage ] ]

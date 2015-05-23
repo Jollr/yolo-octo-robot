@@ -8,10 +8,10 @@ open Suave.Http.Applicatives
 open Suave.Http.Successful
 open Suave.Http.RequestErrors
 open Suave.Http.Files
-open Suave.Utils
 
 open PokePages
 open Dashboard
+open Reset
 
 let config =
   { defaultConfig with
@@ -25,7 +25,11 @@ let globalBindings =
           path "/jquery" >>= file "jquery-2.1.3.js"
           path "/favicon.ico" >>= NOT_FOUND ""] ]
 
-let allBindings = List.append (List.append globalBindings dashboardBindings) pokeBindings
+let allBindings = 
+    pokeBindings
+    |> List.append dashboardBindings
+    |> List.append globalBindings
+    |> List.append resetBindings
 
 let app = choose allBindings
 
