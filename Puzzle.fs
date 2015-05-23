@@ -14,7 +14,7 @@ let private flipRight x y = flip (x+1) y
 let private flipLeft x y = flip (x-1) y
 let private flipDown x y = flip x (y+1)
 
-let trigger x y =
+let Trigger x y =
     if x < 0 then raise (System.ArgumentException("x"))
     if y < 0 then raise (System.ArgumentException("y"))
     if x >= width then raise (System.ArgumentException("x"))
@@ -23,3 +23,5 @@ let trigger x y =
     if y > 0 then flipUp x y
     if x < width - 1 then flipRight x y    
     if y < height - 1 then flipDown x y
+
+let Reset = puzzleGrid <- Array2D.init<bool> width height (fun x y -> false)

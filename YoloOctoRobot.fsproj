@@ -47,18 +47,24 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="GuidScan.fs" />
+    <Compile Include="Html.fs" />
     <Compile Include="Puzzle.fs" />
     <Compile Include="PokeRegistration.fs" />
     <Compile Include="PokeMappings.fs" />
     <Compile Include="PokeHtml.fs" />
     <Compile Include="PokePages.fs" />
     <Compile Include="Dashboard.fs" />
+    <Compile Include="Reset.fs" />
     <Compile Include="Program.fs" />
     <None Include="packages.config" />
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
+    <Reference Include="Suave">
+      <HintPath>packages\Suave.0.28.1\lib\net40\Suave.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
@@ -67,9 +73,6 @@
     </Reference>
     <Reference Include="FsPickler">
       <HintPath>packages\FsPickler.1.0.7\lib\net45\FsPickler.dll</HintPath>
-    </Reference>
-    <Reference Include="Suave">
-      <HintPath>packages\Suave.0.26.1\lib\net40\Suave.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Target Name="BeforeBuild">

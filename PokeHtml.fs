@@ -1,6 +1,7 @@
 ﻿module PokeHtml
 
 open System
+open Html
 open PokeRegistration
 
 let private title (pokemon: PokeRegistration) = seq {
@@ -39,17 +40,16 @@ let private timer (pokemon: PokeRegistration) = seq {
 
 let private timerElement () = "<div id='timer'></div>"
 
-let ButtonPage (pokemon: PokeRegistration) = seq {
-    yield "<html>"
-    yield "   <head>" 
-    yield (title pokemon) |> Seq.reduce (+)
-    yield (timer pokemon)  |> Seq.reduce (+)
-    yield "   </head>" 
-    yield "   <body>"
-    yield (pokeForm pokemon) |> Seq.reduce (+)
-    yield timerElement() 
-    yield "   </body>" 
-    yield "</html>" }
+let ButtonPage (pokemon: PokeRegistration) = 
+    let head = seq {
+        yield (title pokemon) |> Seq.reduce (+)
+        yield (timer pokemon)  |> Seq.reduce (+)
+    } 
+    let body = seq {
+        yield (pokeForm pokemon) |> Seq.reduce (+)
+        yield timerElement() 
+    }
+    PageSq(head, body)
 
 let ButtonLink (pokemon: PokeRegistration) = seq {
     yield "<a href='/pokemon/"
@@ -59,13 +59,7 @@ let ButtonLink (pokemon: PokeRegistration) = seq {
     yield "</a><br/>"
 }
 
-let TestPage (pokemon: seq<PokeRegistration>) = seq {
-    yield "<html>"
-    yield " <head>"
-    yield " </head>"
-    yield " <body>"
-    yield! pokemon |> Seq.map ButtonLink |> Seq.map (Seq.reduce (+))
-    yield " </body>"
-    yield "</html>"
-}
-    
+let TestPage (pokemon: seq<PokeRegistration>) = 
+    let head = "<style> body { font-size: 48px; }</style>"
+    let body = pokemon |> Seq.map ButtonLink |> Seq.map (Seq.reduce (+)) |> Seq.reduce (+)
+    Html.Page(head, body)

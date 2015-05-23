@@ -19,12 +19,12 @@ let private pokeImage (pokeName: string) = file ("img/" + pokeName + ".png")
 
 let private getPokePage (id: Guid) =
     match PokeMappings.GetById id with
-    | Some pokemon -> OK ((ButtonPage pokemon) |> Seq.reduce (+))
+    | Some pokemon -> OK (ButtonPage pokemon)
     | None -> NOT_FOUND ""
 
 let private postPokePage (id: Guid) =
     let trigger (pokemon: PokeRegistration) = 
-        if (pokemon.Trigger()) then Puzzle.trigger pokemon.X pokemon.Y
+        if (pokemon.Trigger()) then Puzzle.Trigger pokemon.X pokemon.Y
         Redirection.FOUND ("/pokemon/" + pokemon.Id.ToString())
      
     match PokeMappings.GetById id with
@@ -34,7 +34,6 @@ let private postPokePage (id: Guid) =
 let private testPage () =
     PokeMappings.GetAll()
     |> PokeHtml.TestPage
-    |> Seq.reduce (+)
     |> OK
 
 let pokeBindings = 

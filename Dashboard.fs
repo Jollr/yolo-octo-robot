@@ -6,6 +6,7 @@ open Suave.Http.Successful
 open Suave.Http.Files
 open Suave.Types
 
+open Html
 open Puzzle
 
 let puzzleSquare x y = seq { 
@@ -26,19 +27,18 @@ let puzzle width height = seq {
     yield "</div>" }
 
 let dashboardPage puzzleWidth puzzleHeight =
-    "<html>" +
-    "    <head>" +
-    "        <title>Gotta catch'em all!</title>" +
-    "        <script type='text/javascript' src='jquery'></script>" +
-    "        <script type='text/javascript' src='dashboard/dashboard.js'></script>" +
-    "        <link type='text/css' href='dashboard/stylesheet.css' rel='stylesheet'>" +
-    "    </head>" +
-    "    <body>" +
-    "        <div class='dashboard-container'>" +
-    Seq.reduce (+) (puzzle puzzleWidth puzzleHeight) +
-    "        </div>" +
-    "    </body>" +
-    "</html>"
+    let head = seq {
+        yield "<title>Gotta catch'em all!</title>"
+        yield "<script type='text/javascript' src='jquery'></script>"
+        yield "<script type='text/javascript' src='dashboard/dashboard.js'></script>"
+        yield "<link type='text/css' href='dashboard/stylesheet.css' rel='stylesheet'>"
+    }
+    let body = seq {
+        yield "<div class='dashboard-container'>"
+        yield Seq.reduce (+) (puzzle puzzleWidth puzzleHeight)
+        yield "</div>"
+    }
+    Html.PageSq(head, body)
 
 let imageFilename x y = "img/puzzle" + x.ToString() + y.ToString() + ".png"
 

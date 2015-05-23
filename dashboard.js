@@ -26,7 +26,7 @@ $(function() {
     var refresher = new Refresher();
     var update = function() {
 		var url = '/dashboard/puzzleState' + '?' + new Date().getTime();
-        $.get('/dashboard/puzzleState', refresher.Update);
+        $.get(url, refresher.Update);
     };
     window.setInterval(update, 500);
 });
