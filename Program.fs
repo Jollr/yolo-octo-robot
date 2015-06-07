@@ -8,6 +8,7 @@ open Suave.Http.Applicatives
 open Suave.Http.Successful
 open Suave.Http.RequestErrors
 open Suave.Http.Files
+open System.Net
 
 open PokePages
 open Dashboard
@@ -15,7 +16,7 @@ open Reset
 
 let config =
   { defaultConfig with
-     bindings = [ HttpBinding.mk' HTTP "192.168.178.24" 8082 ] }
+     bindings = [ HttpBinding.mk' HTTP "192.168.1.13" 8082 ] }
 
 let globalBindings = 
     [ GET >>= choose
