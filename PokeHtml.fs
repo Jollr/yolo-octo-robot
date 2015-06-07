@@ -10,7 +10,7 @@ let private title (pokemon: PokeRegistration) = seq {
     yield "</title>" }
 
 let private buttonElement (pokeName:string) = seq {
-    yield "<button type='submit'><img src='" 
+    yield "<button type='submit' class='button'><img src='" 
     yield pokeName 
     yield "/img'/></button>" }
 
@@ -38,12 +38,13 @@ let private timer (pokemon: PokeRegistration) = seq {
     yield "   });" 
     yield "</script>" }
 
-let private timerElement () = "<div id='timer'></div>"
+let private timerElement () = "<div id='timer' class='timer'></div>"
 
 let ButtonPage (pokemon: PokeRegistration) = 
     let head = seq {
         yield (title pokemon) |> Seq.reduce (+)
         yield (timer pokemon)  |> Seq.reduce (+)
+        yield "<link rel='stylesheet' type='text/css' href='button.css'>"
     } 
     let body = seq {
         yield (pokeForm pokemon) |> Seq.reduce (+)

@@ -40,6 +40,7 @@ let pokeBindings =
     [ GET >>= choose
         [ path "/pokemon/jquery" >>= file "jquery-2.1.3.js"
           path "/pokemon/test" >>= context ( fun x -> testPage() )
+          path "/pokemon/button.css" >>= file "button.css"
           pathScan "/pokemon/%s/img" pokeImage
           guidScan "/pokemon/" getPokePage ] 
       POST >>= choose 
