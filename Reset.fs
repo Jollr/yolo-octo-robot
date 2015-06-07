@@ -15,7 +15,6 @@ let private resetPage () =
     let head = seq { yield "<title>Reset</title>" }
     let body = seq {
         yield "<form method='POST'>"
-//        yield " <input type='password' name='password'/> " 
         yield " <br/>"
         yield " <input type='submit' value='RESET'/>" 
         yield "</form>"
@@ -23,13 +22,14 @@ let private resetPage () =
     Html.PageSq(head, body)
 
 let private postReset (x: HttpContext) =
-    // Todo: check password 
     Puzzle.Reset()
     Redirection.FOUND "/reset"
+
+let auth = authenticateBasic (fun (user, pass) -> pass = "Deventer123" )
 
 let resetBindings = 
     [ GET >>= choose
         [ path "/reset" >>= OK (resetPage()) ] 
       POST >>= choose 
-        [ authenticateBasic (fun (user, pass) -> pass = "Deventer123")
+        [ auth
           path "/reset" >>= context postReset ] ]

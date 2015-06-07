@@ -27,10 +27,10 @@ let globalBindings =
           path "/favicon.ico" >>= NOT_FOUND ""] ]
 
 let allBindings = 
-    pokeBindings
+    resetBindings
     |> List.append dashboardBindings
     |> List.append globalBindings
-    |> List.append resetBindings
+    |> List.append pokeBindings
 
 let app = choose allBindings
 

@@ -7,15 +7,18 @@ open Suave.Types
 
 let guidScan (prefix: string) (h : Guid ->  WebPart) : WebPart =
     let scan (url: string) =
-        let prefixPart = url.Substring(0, prefix.Length)
+        if (prefix.Length < url.Length)
+        then
+            let prefixPart = url.Substring(0, prefix.Length)
 
-        if (prefix = prefixPart)
-        then 
-            try
-                let idPart = url.Substring(prefix.Length, 36)
-                let id = Guid.Parse(idPart)
-                Some id
-            with _ -> None
+            if (prefix = prefixPart)
+            then 
+                try
+                    let idPart = url.Substring(prefix.Length, 36)
+                    let id = Guid.Parse(idPart)
+                    Some id
+                with _ -> None
+            else None
         else None
 
     let F (r:HttpContext) =
