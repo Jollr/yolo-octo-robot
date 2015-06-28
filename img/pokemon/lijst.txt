@@ -1,0 +1,35 @@
+ Volume in drive C has no label.
+ Volume Serial Number is CCE9-027D
+
+ Directory of C:\Users\jolle.lont\Dropbox\Molwˆze 2014 (1)\2015\Spellen\YoloOctoRobot\yolo-octo-robot\img\pokemon
+
+06/28/2015  03:30 PM    <DIR>          .
+06/28/2015  03:30 PM    <DIR>          ..
+06/11/2015  05:24 PM            62,653 Alakazam.png
+06/11/2015  05:23 PM            68,099 Arbok.png
+05/01/2015  01:32 PM            72,747 Bulbasaur.png
+06/11/2015  05:22 PM            65,574 Caterpie.png
+06/11/2015  05:22 PM            51,373 Charmander.png
+06/11/2015  05:28 PM            41,362 Chikorita.png
+06/11/2015  05:25 PM            59,448 Cubone.png
+06/11/2015  05:29 PM            45,164 Cyndaquil.png
+06/11/2015  05:26 PM            42,068 Ditto.png
+06/11/2015  05:27 PM            51,364 Dragonite.png
+06/11/2015  05:31 PM            62,682 Entei.png
+06/11/2015  05:25 PM            59,023 Gengar.png
+06/11/2015  05:26 PM            61,332 Jynx.png
+06/11/2015  05:25 PM            58,623 Koffing.png
+06/28/2015  03:30 PM                 0 lijst.txt
+06/11/2015  05:34 PM            39,802 Lucario.png
+06/11/2015  05:26 PM            60,132 Magikarp.png
+06/11/2015  05:27 PM            43,535 Mew.png
+06/11/2015  05:27 PM            51,781 Mewtwo.png
+06/11/2015  05:23 PM            43,034 Pikachu.png
+06/11/2015  05:24 PM            40,351 Psyduck.png
+06/11/2015  05:31 PM            55,884 Raikou.png
+06/07/2015  07:32 PM            57,817 Squirtle.png
+06/11/2015  05:32 PM            71,333 Suicune.png
+06/11/2015  05:30 PM            69,778 Togepi.png
+06/11/2015  05:28 PM            45,046 Totodile.png
+              26 File(s)      1,380,005 bytes
+               2 Dir(s)  286,191,874,048 bytes free

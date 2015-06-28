@@ -76,8 +76,6 @@
     </Reference>
   </ItemGroup>
   <Target Name="BeforeBuild">
-    <Copy SourceFiles="img\bulbasaur.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
-    <Copy SourceFiles="img\squirtle.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\red.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\white.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="dashboard.css" DestinationFolder="$(OutputPath)" ContinueOnError="false" />
@@ -99,5 +97,30 @@
     <Copy SourceFiles="img\puzzle\puzzle40.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle41.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle42.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Alakazam.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Arbok.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Bulbasaur.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Caterpie.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Charmander.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Chikorita.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Cubone.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Cyndaquil.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Ditto.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Dragonite.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Entei.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Gengar.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Jynx.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Koffing.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Lucario.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Magikarp.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Mew.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Mewtwo.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Pikachu.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Psyduck.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Raikou.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Squirtle.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Suicune.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Togepi.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\pokemon\Totodile.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
   </Target>
 </Project>

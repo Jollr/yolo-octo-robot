@@ -3,7 +3,7 @@
 let width = 5
 let height = 5
 
-let mutable puzzleGrid : bool[,] = Array2D.init<bool> width height (fun x y -> false)
+let mutable puzzleGrid : bool[,] = Array2D.init<bool> width height (fun x y -> x = 2 && y = 2)
 
 let get (x:int) (y:int) : bool = puzzleGrid.GetValue(x, y) :?> bool
 
