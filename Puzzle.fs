@@ -24,4 +24,4 @@ let Trigger x y =
     if x < width - 1 then flipRight x y    
     if y < height - 1 then flipDown x y
 
-let Reset () = puzzleGrid <- Array2D.init<bool> width height (fun x y -> false)
+let Reset () = puzzleGrid <- Array2D.init<bool> width height (fun x y -> x = 2 && y = 2)
