@@ -13,6 +13,7 @@ open System.Net
 open PokePages
 open Dashboard
 open Reset
+open Hint
 
 let config =
   { defaultConfig with
@@ -31,6 +32,7 @@ let allBindings =
     |> List.append dashboardBindings
     |> List.append globalBindings
     |> List.append pokeBindings
+    |> List.append hintBindings
 
 let app = choose allBindings
 

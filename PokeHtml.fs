@@ -6,7 +6,7 @@ open PokeRegistration
 
 let private title (pokemon: PokeRegistration) = seq {
     yield "<title>"
-    yield pokemon.Name
+    yield "."
     yield "</title>" }
 
 let private buttonElement (pokeName:string) = seq {

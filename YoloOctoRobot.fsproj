@@ -48,6 +48,7 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="GuidScan.fs" />
     <Compile Include="Html.fs" />
+    <Compile Include="Hint.fs" />
     <Compile Include="Puzzle.fs" />
     <Compile Include="PokeRegistration.fs" />
     <Compile Include="PokeMappings.fs" />
