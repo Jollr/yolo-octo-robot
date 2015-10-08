@@ -40,7 +40,7 @@ let dashboardPage puzzleWidth puzzleHeight =
     }
     Html.PageSq(head, body)
 
-let imageFilename x y = "img/puzzle" + x.ToString() + y.ToString() + ".png"
+let imageFilename x y = "img/puzzle" + y.ToString() + x.ToString() + ".png"
 
 let image x y =
     match Puzzle.get x y with

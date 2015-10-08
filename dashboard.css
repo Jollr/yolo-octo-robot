@@ -1,9 +1,14 @@
 .puzzle-square{
 	float: left;
-	width: 180px;
-	height: 180px;
+	width: 160px;
+	height: 160px;
 }
 
 .puzzle-row {
 	display: table;
+}
+
+.puzzle {
+	margin: 0 auto;
+	width: 800px;
 }

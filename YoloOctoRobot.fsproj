@@ -86,18 +86,30 @@
     <Copy SourceFiles="img\puzzle\puzzle00.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle01.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle02.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\puzzle\puzzle03.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\puzzle\puzzle04.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle10.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle11.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle12.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\puzzle\puzzle13.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\puzzle\puzzle14.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle20.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle21.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle22.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\puzzle\puzzle23.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\puzzle\puzzle24.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle30.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle31.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle32.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\puzzle\puzzle33.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\puzzle\puzzle34.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle40.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle41.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\puzzle\puzzle42.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\puzzle\puzzle43.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\puzzle\puzzle44.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\puzzle\Eindframe.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
+    <Copy SourceFiles="img\puzzle\Eindgif.gif" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\pokemon\Alakazam.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\pokemon\Arbok.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
     <Copy SourceFiles="img\pokemon\Bulbasaur.png" DestinationFolder="$(OutputPath)\img" ContinueOnError="false" />
