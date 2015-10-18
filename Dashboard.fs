@@ -36,6 +36,7 @@ let dashboardPage puzzleWidth puzzleHeight =
     let body = seq {
         yield "<div class='dashboard-container'>"
         yield Seq.reduce (+) (puzzle puzzleWidth puzzleHeight)
+        yield "<div><img class='finished-gif'/></div>"
         yield "</div>"
     }
     Html.PageSq(head, body)
@@ -63,5 +64,6 @@ let dashboardBindings =
         pathScan "/dashboard/%d/%d/img" ( fun (x, y) -> image x y ) 
         path "/dashboard/stylesheet.css" >>= file "dashboard.css"
         path "/dashboard/dashboard.js" >>= file "dashboard.js" 
-        path "/dashboard/puzzleState" >>= context (fun x -> puzzleState()) ] ]
-        
+        path "/dashboard/puzzleState" >>= context (fun x -> puzzleState())
+        path "/eindgif.gif" >>= file "img/eindgif.gif"
+        path "/eindframe.png" >>= file "img/eindframe.png" ] ]
